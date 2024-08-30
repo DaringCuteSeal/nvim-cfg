@@ -33,6 +33,7 @@ set directory=~/.cache/vim/swap//
 set number
 set ic
 colorscheme jellybeans
+"colorscheme jellybeans
 "let g:airline_theme='jellybeans'
 "set ttymouse=sgr
 set title
