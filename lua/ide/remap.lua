@@ -39,6 +39,9 @@ vim.keymap.set("n", "<leader>bn", vim.cmd.BufferLineMoveNext)
 vim.keymap.set("n", "<leader>bp", vim.cmd.BufferLineMovePrev)
 vim.keymap.set("n", "<leader>bb", vim.cmd.BufferLineCloseOthers)
 
+-- Color manipulation with Colortils (https://github.com/max397574/colortils.nvim)
+vim.keymap.set("n", "c", vim.cmd.Colortils)
+
 -- DAP (https://github.com/mfussenegger/nvim-dap)
 -- local dap = require('dap')
 -- vim.keymap.set("n", "<leader>da", dap.toggle_breakpoint)

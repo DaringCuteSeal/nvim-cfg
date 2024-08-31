@@ -12,30 +12,34 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 local luasnip = require('luasnip')
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = {
-    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
+	formatting = {
+		format = require("nvim-highlight-colors").format
+	},
+
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body)
+		end,
+	},
+	mapping = {
+		['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+		['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
+		['<S-Tab>'] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { 'i', 's' }),
+	},
+	sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
+	},
 })
 
 

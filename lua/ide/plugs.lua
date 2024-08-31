@@ -53,10 +53,12 @@ require("lazy").setup(
   "windwp/nvim-autopairs",
   "saadparwaiz1/cmp_luasnip",
   "akinsho/bufferline.nvim",
+  "max397574/colortils.nvim",
   "hrsh7th/cmp-nvim-lsp",
   --"lvimuser/lsp-inlayhints.nvim",
   --"mfussenegger/nvim-dap",
   "hrsh7th/cmp-nvim-lua",
+  'brenoprata10/nvim-highlight-colors',
   "edKotinsky/Arduino.nvim",
   { "nvim-tree/nvim-tree.lua", dependencies = {'nvim-tree/nvim-web-devicons'}},
   "L3MON4D3/LuaSnip",
@@ -584,20 +586,128 @@ require('reticle').setup {
 
 
 require("noice").setup({
-  lsp = {
-    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-    override = {
-      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-      ["vim.lsp.util.stylize_markdown"] = true,
-      ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-    },
-  },
-  -- you can enable a preset for easier configuration
-  presets = {
-    bottom_search = true, -- use a classic bottom cmdline for search
-    command_palette = true, -- position the cmdline and popupmenu together
-    long_message_to_split = true, -- long messages will be sent to a split
-    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-    lsp_doc_border = false, -- add a border to hover docs and signature help
-  },
+	lsp = {
+		-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+		override = {
+			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+			["vim.lsp.util.stylize_markdown"] = true,
+			["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+		},
+	},
+	-- you can enable a preset for easier configuration
+	--
+
+	presets = {
+		bottom_search = true, -- use a classic bottom cmdline for search
+		command_palette = true, -- position the cmdline and popupmenu together
+		long_message_to_split = true, -- long messages will be sent to a split
+		inc_rename = false, -- enables an input dialog for inc-rename.nvim
+		lsp_doc_border = false, -- add a border to hover docs and signature help
+	},
 })
+
+require("colortils").setup(
+	{
+		-- Register in which color codes will be copied
+		register = "\"",
+		-- Preview for colors, if it contains `%s` this will be replaced with a hex color code of the color
+		color_preview =  "█ %s",
+		-- The default in which colors should be saved
+		-- This can be hex, hsl or rgb
+		default_format = "hex",
+		-- String: default color if no color is found
+		default_color = "#000000",
+		-- Border for the float
+		border = "rounded",
+		-- Some mappings which are used inside the tools
+		mappings = {
+			-- increment values
+			increment = "l",
+			-- decrement values
+			decrement = "h",
+			-- increment values with bigger steps
+			increment_big = "L",
+			-- decrement values with bigger steps
+			decrement_big = "H",
+			-- set values to the minimum
+			min_value = "0",
+			-- set values to the maximum
+			max_value = "$",
+			-- save the current color in the register specified above with the format specified above
+			set_register_default_format = "<cr>",
+			-- save the current color in the register specified above with a format you can choose
+			set_register_choose_format = "g<cr>",
+			-- replace the color under the cursor with the current color in the format specified above
+			replace_default_format = "<m-cr>",
+			-- replace the color under the cursor with the current color in a format you can choose
+			replace_choose_format = "g<m-cr>",
+			-- export the current color to a different tool
+			export = "E",
+			-- set the value to a certain number (done by just entering numbers)
+			set_value = "c",
+			-- toggle transparency
+			transparency = "T",
+			-- choose the background (for transparent colors)
+			choose_background = "B",
+		}
+	}
+
+)
+
+
+require('nvim-highlight-colors').setup({
+
+	---Render style
+	---@usage 'background'|'foreground'|'virtual'
+	render = 'background',
+
+	---Set virtual symbol (requires render to be set to 'virtual')
+	virtual_symbol = '',
+
+	---Set virtual symbol suffix (defaults to '')
+	virtual_symbol_prefix = '',
+
+	---Set virtual symbol suffix (defaults to ' ')
+	virtual_symbol_suffix = ' ',
+
+	---Set virtual symbol position()
+	---@usage 'inline'|'eol'|'eow'
+	---inline mimics VS Code style
+	---eol stands for `end of column` - Recommended to set `virtual_symbol_suffix = ''` when used.
+	---eow stands for `end of word` - Recommended to set `virtual_symbol_prefix = ' ' and virtual_symbol_suffix = ''` when used.
+	virtual_symbol_position = 'inline',
+
+	---Highlight hex colors, e.g. '#FFFFFF'
+	enable_hex = true,
+
+	---Highlight short hex colors e.g. '#fff'
+	enable_short_hex = true,
+
+	---Highlight rgb colors, e.g. 'rgb(0 0 0)'
+	enable_rgb = true,
+
+	---Highlight hsl colors, e.g. 'hsl(150deg 30% 40%)'
+	enable_hsl = true,
+
+	---Highlight CSS variables, e.g. 'var(--testing-color)'
+	enable_var_usage = true,
+
+	---Highlight named colors, e.g. 'green'
+	enable_named_colors = true,
+
+	---Highlight tailwind colors, e.g. 'bg-blue-500'
+	enable_tailwind = false,
+
+	---Set custom colors
+	---Label must be properly escaped with '%' to adhere to `string.gmatch`
+	--- :help string.gmatch
+	custom_colors = {
+		{ label = '%-%-theme%-primary%-color', color = '#0f1219' },
+		{ label = '%-%-theme%-secondary%-color', color = '#5a5d64' },
+	},
+
+	-- Exclude filetypes or buftypes from highlighting e.g. 'exclude_buftypes = {'text'}'
+	exclude_filetypes = {},
+	exclude_buftypes = {}
+}
+)
