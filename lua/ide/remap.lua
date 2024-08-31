@@ -40,7 +40,10 @@ vim.keymap.set("n", "<leader>bp", vim.cmd.BufferLineMovePrev)
 vim.keymap.set("n", "<leader>bb", vim.cmd.BufferLineCloseOthers)
 
 -- Color manipulation with Colortils (https://github.com/max397574/colortils.nvim)
-vim.keymap.set("n", "c", vim.cmd.Colortils)
+vim.keymap.set("n", "<leader>cc", vim.cmd.Colortils)
+vim.keymap.set("n", "<leader>cd", function() vim.cmd [[Colortils darken]] end)
+vim.keymap.set("n", "<leader>cl", function() vim.cmd [[Colortils lighten]] end)
+vim.keymap.set("n", "<leader>cg", function() vim.cmd [[Colortils gradient]] end)
 
 -- DAP (https://github.com/mfussenegger/nvim-dap)
 -- local dap = require('dap')
