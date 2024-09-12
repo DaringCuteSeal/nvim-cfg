@@ -22,6 +22,8 @@ vim.cmd [[set conceallevel=2]]
 vim.cmd [[ let g:vim_markdown_folding_disabled = 1 ]]
 vim.cmd [[ let g:vim_markdown_frontmatter = 1 ]]
 vim.cmd [[ AWStart ]]
+vim.cmd [[set shiftwidth=4]]
+vim.cmd [[set tabstop=4]]
 
 -- Disable the "how-to disable mouse" menu item
 vim.cmd [[aunmenu PopUp.How-to\ disable\ mouse]]
@@ -33,27 +35,6 @@ vim.g.loaded_netrwPlugin = 1
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
-
--- empty setup using defaults
-require("nvim-tree").setup()
-
--- OR setup with some options
-require("nvim-tree").setup({
-  sort = {
-    sorter = "case_sensitive",
-  },
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
-
-
 
 -- Other configurations
 
