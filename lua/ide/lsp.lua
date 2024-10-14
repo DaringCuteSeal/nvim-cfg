@@ -136,3 +136,12 @@ Lspconfig.arduino_language_server.setup {
 }
 
 
+
+-- rust formatter yay
+vim.cmd([[let g:rustfmt_autosave = 1 ]])
+
+
+-- inlay hints uwu
+if vim.lsp.inlay_hint then
+  vim.lsp.inlay_hint.enable(true, { 0 })
+end
