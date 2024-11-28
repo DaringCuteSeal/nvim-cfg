@@ -1,9 +1,9 @@
-require("ide.plugs")
-require("ide.lsp")
-require("ide.debug")
-require("ide.remap")
+require "ide.plugs"
+require "ide.lsp"
+require "ide.debug"
+require "ide.remap"
 
-print("Welcome! Happy coding.")
+print "Welcome! Happy coding."
 
 -- Colorscheme
 vim.cmd [[colorscheme onedark]]
@@ -16,7 +16,7 @@ vim.cmd [[set directory=~/.cache/nvim/swap]]
 vim.cmd [[set undofile]]
 vim.cmd [[set backup]]
 vim.cmd [[set linebreak]]
-vim.cmd [[set smartcase]]
+vim.cmd [[set ic]]
 vim.cmd [[set updatetime=500]]
 vim.cmd [[set conceallevel=2]]
 vim.cmd [[ let g:vim_markdown_folding_disabled = 1 ]]
@@ -49,7 +49,7 @@ function nvim_create_augroups(definitions)
       local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
       api.nvim_command(command)
     end
-    api.nvim_command('augroup END')
+    api.nvim_command 'augroup END'
   end
 end
 
