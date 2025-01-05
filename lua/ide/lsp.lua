@@ -139,6 +139,7 @@ Lspconfig.arduino_language_server.setup {
 
 -- rust formatter yay
 vim.cmd([[let g:rustfmt_autosave = 1 ]])
+vim.cmd([[let g:ale_rust_cargo_clippy_options = '-- -W clippy::nursery -W clippy::pedantic']])
 
 
 -- inlay hints uwu

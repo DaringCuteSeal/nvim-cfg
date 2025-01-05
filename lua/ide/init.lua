@@ -89,3 +89,4 @@ nvim_create_augroups(autocmds)
 vim.opt.title = true
 vim.opt.titlelen = 0
 vim.opt.titlestring = 'nvim IDE %{expand("%")}'
+vim.cmd [[set textwidth=80]]
