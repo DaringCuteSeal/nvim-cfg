@@ -122,15 +122,15 @@ require('lualine').setup {
 -- Arduino
 
 Lspconfig = require('lspconfig')
-local MY_FQBN = "arduino:avr:nano:cpu=atmega328old"
+local MY_FQBN = "arduino:avr:uno"
 Lspconfig.lua_ls.setup({})
 Lspconfig.arduino_language_server.setup {
     cmd = {
         "arduino-language-server",
-        "-cli-config", "/home/cikitta/.arduino15/arduino-cli.yaml",
-	"-clangd", "/usr/bin/clangd",
-	"-cli", "/usr/bin/arduino-cli",
-        "-fqbn",
+		"-cli-config", "/home/cikitta/.arduino15/arduino-cli.yaml",
+		"-clangd", "/usr/bin/clangd",
+		"-cli", "/usr/bin/arduino-cli",
+		"-fqbn",
         MY_FQBN
     }
 }
