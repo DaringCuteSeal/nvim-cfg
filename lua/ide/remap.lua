@@ -14,7 +14,6 @@ local comment = require('Comment.api')
 vim.keymap.set('n', '<C-/>', comment.toggle.linewise.current, {})
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-vim.keymap.set("n", "<leader>tt", vim.cmd.Tagbar)
 vim.keymap.set("n", "<leader>pv", vim.cmd.NvimTreeToggle)
 vim.keymap.set("n", "<leader>gf", vim.cmd.ObsidianBacklink)
 vim.keymap.set("n", "<leader>T", function()
