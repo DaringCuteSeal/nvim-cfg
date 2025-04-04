@@ -24,7 +24,7 @@ require("lazy").setup(
 			build = function() vim.fn["mkdp#util#install"]() end,
 		},
 		"navarasu/onedark.nvim",
-		{"nvim-treesitter/nvim-treesitter", run = ':TSUpdate'},
+		{"nvim-treesitter/nvim-treesitter", run = ':TSUpdate', dependencies = {'nushell/tree-sitter-nu'}},
 		--"nvim-treesitter/playground",
 		"tpope/vim-fugitive",
 		"folke/todo-comments.nvim",
@@ -103,7 +103,6 @@ require("lazy").setup(
 		},
 		--"pocco81/dap-buddy.nvim",
 		--{
-		"nushell/tree-sitter-nu",
 		-- svelte
 		{ "evanleck/vim-svelte", dependencies = {
 			"leafgarland/typescript-vim",
@@ -200,8 +199,8 @@ require("headlines").setup()
 
 
 require'nvim-treesitter.configs'.setup {
-	-- A list of parser names, or "all" (the five listed parsers should always be installed)
-	ensure_installed = { "c", "python", "cpp", "lua", "vim", "vimdoc", "query", "nu" },
+	-- A list of parser names, or "all"
+	ensure_installed = { "c", "python", "cpp", "lua", "vim", "vimdoc", "query"},
 
 	indent = {
 		enable = true,
