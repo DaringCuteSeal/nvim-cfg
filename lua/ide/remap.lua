@@ -9,6 +9,9 @@ vim.keymap.set('n', '<leader>ps', function()
 	builtin.grep_string({ search = vim.fn.input("Find string: ")});
 end)
 
+-- templates
+require("telescope").load_extension('find_template')
+vim.keymap.set('n', '<C-t>', function() vim.cmd [[Telescope find_template type=insert filter_ft=false]] end, {})
 
 local comment = require('Comment.api')
 vim.keymap.set('n', '<C-/>', comment.toggle.linewise.current, {})

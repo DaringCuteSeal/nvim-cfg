@@ -36,6 +36,7 @@
   "popfix": { "branch": "master", "commit": "bf3cc436df63cd535350d5ef1b951c91554d4b01" },
   "reticle.nvim": { "branch": "main", "commit": "48b0ce41b90e571271d3c6d481d81e7be4e563b1" },
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
+  "template.nvim": { "branch": "main", "commit": "308f6f8f0bf98cb7c71855ffa8a3019a5642d1cd" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "todo.nvim": { "branch": "main", "commit": "03e95bfa846ec5368014da91c1c9aef20cbfff1a" },
   "tree-sitter-nu": { "branch": "main", "commit": "df4e4c8e8887db34285293cfb1cf09127b2aa41c" },
