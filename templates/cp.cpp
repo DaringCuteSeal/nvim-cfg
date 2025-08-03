@@ -5,12 +5,14 @@
 // til: 
 
 #include <dbg.h>
-#include <cmath>
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
+
+typedef vector<int> vi;
+
+// params:
+
 
 int main(){
 	ios::sync_with_stdio(0);
