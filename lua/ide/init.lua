@@ -22,8 +22,8 @@ vim.cmd [[set conceallevel=2]]
 vim.cmd [[ let g:vim_markdown_folding_disabled = 1 ]]
 vim.cmd [[ let g:vim_markdown_frontmatter = 1 ]]
 --vim.cmd [[ AWStart ]]
-vim.cmd [[set shiftwidth=4]]
-vim.cmd [[set tabstop=4]]
+vim.cmd [[set shiftwidth=3]]
+vim.cmd [[set tabstop=3]]
 
 -- Disable the "how-to disable mouse" menu item
 vim.cmd [[aunmenu PopUp.How-to\ disable\ mouse]]
