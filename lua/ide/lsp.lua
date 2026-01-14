@@ -65,7 +65,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {'clangd', 'rust_analyzer'},
   handlers = {
     function(server_name)
-      require('lspconfig')[server_name].setup({
+      vim.lsp.config[server_name].setup({
         capabilities = lsp_capabilities,
       })
     end,
@@ -115,24 +115,6 @@ require('lualine').setup {
   winbar = {},
   inactive_winbar = {},
   extensions = {}
-}
-
-
-
--- Arduino
-
-Lspconfig = require('lspconfig')
-local MY_FQBN = "arduino:avr:nano"
-Lspconfig.lua_ls.setup({})
-Lspconfig.arduino_language_server.setup {
-    cmd = {
-        "arduino-language-server",
-		"-cli-config", "/home/cikitta/.arduino15/arduino-cli.yaml",
-		"-clangd", "/usr/bin/clangd",
-		"-cli", "/usr/bin/arduino-cli",
-		"-fqbn",
-        MY_FQBN
-    }
 }
 
 
