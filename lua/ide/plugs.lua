@@ -24,7 +24,7 @@ require("lazy").setup(
 			build = function() vim.fn["mkdp#util#install"]() end,
 		},
 		"navarasu/onedark.nvim",
-		{"nvim-treesitter/nvim-treesitter", run = ':TSUpdate', dependencies = {'nushell/tree-sitter-nu'}},
+		{"nvim-treesitter/nvim-treesitter", run = ':TSUpdate'},
 		--"nvim-treesitter/playground",
 		"tpope/vim-fugitive",
 		"folke/todo-comments.nvim",
@@ -35,7 +35,6 @@ require("lazy").setup(
 		"lukas-reineke/indent-blankline.nvim",
 		{ "nvim-lualine/lualine.nvim", dependencies = {'nvim-tree/nvim-web-devicons'} },
 		"glepnir/dashboard-nvim",
-		"VonHeikemen/lsp-zero.nvim",
 		"RaafatTurki/hex.nvim",
 		"folke/noice.nvim",
 		"neovim/nvim-lspconfig",
@@ -222,7 +221,7 @@ require("headlines").setup()
 
 
 
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter'.setup {
 	-- A list of parser names, or "all"
 	ensure_installed = { "c", "python", "cpp", "lua", "vim", "vimdoc", "query"},
 

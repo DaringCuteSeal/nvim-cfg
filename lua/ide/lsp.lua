@@ -1,7 +1,4 @@
-local lsp = require('lsp-zero')
-
 local cmp = require('cmp')
-local cmp_select = {behaviour = cmp.SelectHevari}
 -- local cmp_mappings = lsp.defaults.cmp_mappings({
 -- 	['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
 -- 	['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
@@ -21,8 +18,8 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-		['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+		['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+		['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
 		['<S-Tab>'] = cmp.mapping(function(fallback)
@@ -38,6 +35,7 @@ cmp.setup({
 	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
+		{ name = 'buffer' },
 	},
 })
 vim.api.nvim_create_autocmd('LspAttach', {
