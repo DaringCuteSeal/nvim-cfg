@@ -18,8 +18,8 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-		['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+		['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+		['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
 		['<S-Tab>'] = cmp.mapping(function(fallback)
