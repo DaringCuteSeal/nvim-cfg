@@ -32,6 +32,7 @@ require("lazy").setup(
 		"numToStr/Comment.nvim",
 		--"epwalsh/obsidian.nvim",
 		"preservim/vim-markdown",
+		{'wakatime/vim-wakatime', lazy = false },
 		"lukas-reineke/indent-blankline.nvim",
 		{ "nvim-lualine/lualine.nvim", dependencies = {'nvim-tree/nvim-web-devicons'} },
 		"glepnir/dashboard-nvim",
