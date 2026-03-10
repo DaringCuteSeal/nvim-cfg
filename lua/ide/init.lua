@@ -10,6 +10,7 @@ vim.cmd [[colorscheme onedark]]
 
 -- Options
 vim.cmd [[set number]]
+vim.cmd [[set relativenumber]]
 vim.cmd [[set undodir=~/.cache/nvim/undo]]
 vim.cmd [[set backupdir=~/.cache/nvim/backup]]
 vim.cmd [[set directory=~/.cache/nvim/swap]]
