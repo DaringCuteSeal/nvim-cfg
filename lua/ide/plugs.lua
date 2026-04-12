@@ -29,6 +29,12 @@ require("lazy").setup(
 		"tpope/vim-fugitive",
 		"folke/todo-comments.nvim",
 		--"tpope/vim-commentary",
+		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
+		{
+			'Mathijs-Bakker/godotdev.nvim',
+			dependencies = { 'nvim-lspconfig', 'nvim-dap', 'nvim-dap-ui', 'nvim-treesitter' },
+		},
 		"numToStr/Comment.nvim",
 		--"epwalsh/obsidian.nvim",
 		"preservim/vim-markdown",
@@ -62,6 +68,7 @@ require("lazy").setup(
 		"edKotinsky/Arduino.nvim",
 		{ "nvim-tree/nvim-tree.lua", dependencies = {'nvim-tree/nvim-web-devicons'}},
 		"L3MON4D3/LuaSnip",
+		"stevearc/conform.nvim",
 		-- with lazy.nvim
 
 		{'glepnir/template.nvim', cmd = {'Template','TemProject'}, config = function()
@@ -698,3 +705,27 @@ require 'hex'.setup {
     -- must return a bool
   end,
 }
+
+require("godotdev").setup({
+  editor_host = "127.0.0.1", -- Godot editor host
+  editor_port = 6005,        -- Godot LSP port
+  debug_port = 6006,         -- Godot debugger port
+  csharp = false,             -- Enable C# Installation Support
+  autostart_editor_server = true,  -- Enable auto start Nvim server
+})
+
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		-- Conform will run multiple formatters sequentially
+		python = { "isort", "black" },
+		-- You can customize some of the format options for the filetype (:help conform.format)
+		rust = { "rustfmt", lsp_format = "fallback" },
+		-- Conform will run the first available formatter
+		javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
+	},
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_format = "fallback"
+	}
+})
