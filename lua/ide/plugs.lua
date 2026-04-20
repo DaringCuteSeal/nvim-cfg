@@ -66,7 +66,29 @@ require("lazy").setup(
 		'brenoprata10/nvim-highlight-colors',
 		"edKotinsky/Arduino.nvim",
 		{ "nvim-tree/nvim-tree.lua", dependencies = { 'nvim-tree/nvim-web-devicons' } },
-		"L3MON4D3/LuaSnip",
+
+		{
+			"L3MON4D3/LuaSnip",
+			dependencies = { "rafamadriz/friendly-snippets" },
+			config = function()
+				require("luasnip.loaders.from_lua").load({
+					paths = "~/.config/nvim/lua/snippets"
+				})
+				require("luasnip.loaders.from_vscode").lazy_load()
+				vim.keymap.set({ "i", "s" }, "<Tab>", function()
+					local ls = require("luasnip")
+					if ls.expand_or_jumpable() then
+						ls.expand_or_jump()
+					else
+						vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", true)
+					end
+				end, { silent = true })
+
+				vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+					require("luasnip").jump(-1)
+				end, { silent = true })
+			end,
+		},
 		"stevearc/conform.nvim",
 		-- with lazy.nvim
 
@@ -86,7 +108,6 @@ require("lazy").setup(
 		-- you may see some diagnostics in template file. use ft to lazy load the diagnostic not display
 		-- when you edit the template file.
 
-		"rafamadriz/friendly-snippets",
 		"tummetott/reticle.nvim",
 		{
 			"folke/trouble.nvim",
@@ -732,8 +753,4 @@ require("conform").setup({
 		timeout_ms = 500,
 		lsp_format = "fallback"
 	}
-})
-
-require("luasnip.loaders.from_lua").load({
-	paths = "~/.config/nvim/lua/snippets"
 })
