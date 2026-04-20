@@ -24,7 +24,7 @@ require("lazy").setup(
 			build = function() vim.fn["mkdp#util#install"]() end,
 		},
 		"navarasu/onedark.nvim",
-		{"nvim-treesitter/nvim-treesitter", run = ':TSUpdate'},
+		{ "nvim-treesitter/nvim-treesitter", run = ':TSUpdate' },
 		--"nvim-treesitter/playground",
 		"tpope/vim-fugitive",
 		"folke/todo-comments.nvim",
@@ -38,10 +38,9 @@ require("lazy").setup(
 		"numToStr/Comment.nvim",
 		--"epwalsh/obsidian.nvim",
 		"preservim/vim-markdown",
-		{'wakatime/vim-wakatime', lazy = false },
+		{ 'wakatime/vim-wakatime',           lazy = false },
 		"lukas-reineke/indent-blankline.nvim",
-		{ "nvim-lualine/lualine.nvim", dependencies = {'nvim-tree/nvim-web-devicons'} },
-		"glepnir/dashboard-nvim",
+		{ "nvim-lualine/lualine.nvim", dependencies = { 'nvim-tree/nvim-web-devicons' } },
 		"RaafatTurki/hex.nvim",
 		"folke/noice.nvim",
 		"neovim/nvim-lspconfig",
@@ -49,7 +48,7 @@ require("lazy").setup(
 		"williamboman/mason-lspconfig.nvim",
 		"hrsh7th/nvim-cmp",
 		--"vuciv/vim-bujo",
-		{ "pablopunk/todo.nvim", opts = { map = "<leader>vtd" }},
+		{ "pablopunk/todo.nvim",       opts = { map = "<leader>vtd" } },
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"RishabhRD/popfix",
@@ -66,73 +65,79 @@ require("lazy").setup(
 		"hrsh7th/cmp-nvim-lua",
 		'brenoprata10/nvim-highlight-colors',
 		"edKotinsky/Arduino.nvim",
-		{ "nvim-tree/nvim-tree.lua", dependencies = {'nvim-tree/nvim-web-devicons'}},
+		{ "nvim-tree/nvim-tree.lua", dependencies = { 'nvim-tree/nvim-web-devicons' } },
 		"L3MON4D3/LuaSnip",
 		"stevearc/conform.nvim",
 		-- with lazy.nvim
 
-		{'glepnir/template.nvim', cmd = {'Template','TemProject'}, config = function()
-			require('template').setup({
-				temp_dir = '~/.config/nvim/templates',
-				author = 'daringcuteseal',
-				email = 'daringcuteseal@gmail.com',
-			})
-		end},
+		{
+			'glepnir/template.nvim',
+			cmd = { 'Template', 'TemProject' },
+			config = function()
+				require('template').setup({
+					temp_dir = '~/.config/nvim/templates',
+					author = 'daringcuteseal',
+					email = 'daringcuteseal@gmail.com',
+				})
+			end
+		},
 
 		-- lazy load you can use cmd or ft. if you are using cmd to lazyload when you edit the template file
 		-- you may see some diagnostics in template file. use ft to lazy load the diagnostic not display
 		-- when you edit the template file.
-		
+
 		"rafamadriz/friendly-snippets",
 		"tummetott/reticle.nvim",
 		{
-		  "folke/trouble.nvim",
-		  opts = {},
-		  cmd = "Trouble",
-		  keys = {
-			{
-			  "<leader>vD",
-			  "<cmd>Trouble diagnostics toggle<cr>",
-			  desc = "Diagnostics (Trouble)",
+			"folke/trouble.nvim",
+			opts = {},
+			cmd = "Trouble",
+			keys = {
+				{
+					"<leader>vD",
+					"<cmd>Trouble diagnostics toggle<cr>",
+					desc = "Diagnostics (Trouble)",
+				},
+				{
+					"<leader>vd",
+					"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+					desc = "Buffer Diagnostics (Trouble)",
+				},
+				{
+					"<leader>tt",
+					"<cmd>Trouble symbols toggle focus=false<cr>",
+					desc = "Symbols (Trouble)",
+				},
+				{
+					"<leader>cl",
+					"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+					desc = "LSP Definitions / references / ... (Trouble)",
+				},
+				{
+					"<leader>xL",
+					"<cmd>Trouble loclist toggle<cr>",
+					desc = "Location List (Trouble)",
+				},
+				{
+					"<leader>xQ",
+					"<cmd>Trouble qflist toggle<cr>",
+					desc = "Quickfix List (Trouble)",
+				},
 			},
-			{
-			  "<leader>vd",
-			  "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-			  desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
-			  "<leader>tt",
-			  "<cmd>Trouble symbols toggle focus=false<cr>",
-			  desc = "Symbols (Trouble)",
-			},
-			{
-			  "<leader>cl",
-			  "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-			  desc = "LSP Definitions / references / ... (Trouble)",
-			},
-			{
-			  "<leader>xL",
-			  "<cmd>Trouble loclist toggle<cr>",
-			  desc = "Location List (Trouble)",
-			},
-			{
-			  "<leader>xQ",
-			  "<cmd>Trouble qflist toggle<cr>",
-			  desc = "Quickfix List (Trouble)",
-			},
-		  },
 		},
 		--"pocco81/dap-buddy.nvim",
 		--{
 		-- svelte
-		{ "evanleck/vim-svelte", dependencies = {
-			"leafgarland/typescript-vim",
-			"othree/html5.vim"
-		}
+		{
+			"evanleck/vim-svelte",
+			dependencies = {
+				"leafgarland/typescript-vim",
+				"othree/html5.vim"
+			}
 		},
 		{
 			"lervag/vimtex",
-			lazy = false,     -- we don't want to lazy load VimTeX
+			lazy = false, -- we don't want to lazy load VimTeX
 			-- tag = "v2.15", -- uncomment to pin to a specific release
 			init = function()
 				-- VimTeX configuration goes here, e.g.
@@ -190,8 +195,8 @@ require("lazy").setup(
 								key = 'd',
 							},
 							{
-								icon=' ',
-								desc="GitHub",
+								icon = ' ',
+								desc = "GitHub",
 								group = "DiagnosticHint",
 								action = "!xdg-open 'https://github.com/DaringCuteSeal/'",
 								key = 'g',
@@ -200,9 +205,8 @@ require("lazy").setup(
 					},
 				}
 				-- config
-
 			end,
-			dependencies = { {'nvim-tree/nvim-web-devicons'}}
+			dependencies = { { 'nvim-tree/nvim-web-devicons' } }
 		}
 	}
 
@@ -229,9 +233,9 @@ require("headlines").setup()
 
 
 
-require'nvim-treesitter'.setup {
+require 'nvim-treesitter'.setup {
 	-- A list of parser names, or "all"
-	ensure_installed = { "c", "python", "cpp", "lua", "vim", "vimdoc", "query"},
+	ensure_installed = { "c", "python", "cpp", "lua", "vim", "vimdoc", "query" },
 
 	indent = {
 		enable = true,
@@ -268,7 +272,7 @@ require'nvim-treesitter'.setup {
 		--     end
 		-- end,
 
-		disable = {"markdown", "markdown_inline", "svelte", "rust"},
+		disable = { "markdown", "markdown_inline", "svelte", "rust" },
 
 		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
 		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -325,7 +329,7 @@ require("ibl").setup {
 		highlight = highlight, char = '|'
 	},
 	exclude = {
-		filetypes = {"lspinfo", "packer", "checkhealth", "help", "man", "gitcommit", "TelescopePrompt", "TelescopeResults", "dashboard"}},
+		filetypes = { "lspinfo", "packer", "checkhealth", "help", "man", "gitcommit", "TelescopePrompt", "TelescopeResults", "dashboard" } },
 	scope = {
 		enabled = true,
 		highlight = "ScopeHl",
@@ -346,7 +350,7 @@ require("todo-comments").setup()
 vim.opt.termguicolors = true
 require("bufferline").setup({
 	options = {
-		separator_style = {"|", "|"},
+		separator_style = { "|", "|" },
 		indicator = {
 			style = 'underline',
 		},
@@ -362,9 +366,9 @@ require('reticle').setup {
 require("noice").setup(
 	{
 		cmdline = {
-			enabled = true, -- enables the Noice cmdline UI
+			enabled = true,   -- enables the Noice cmdline UI
 			view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
-			opts = {}, -- global options for the cmdline. See section on views
+			opts = {},        -- global options for the cmdline. See section on views
 			---@type table<string, CmdlineFormat>
 			format = {
 				-- conceal: (default=true) This will hide the text in the cmdline that matches the pattern.
@@ -385,10 +389,10 @@ require("noice").setup(
 		messages = {
 			-- NOTE: If you enable messages, then the cmdline is enabled automatically.
 			-- This is a current Neovim limitation.
-			enabled = true, -- enables the Noice messages UI
-			view = "notify", -- default view for messages
+			enabled = true,        -- enables the Noice messages UI
+			view = "notify",       -- default view for messages
 			view_error = "notify", -- view for errors
-			view_warn = "notify", -- view for warnings
+			view_warn = "notify",  -- view for warnings
 			view_history = "messages", -- view for :messages
 			view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
 		},
@@ -420,7 +424,7 @@ require("noice").setup(
 						{ error = true },
 						{ warning = true },
 						{ event = "msg_show", kind = { "" } },
-						{ event = "lsp", kind = "message" },
+						{ event = "lsp",      kind = "message" },
 					},
 				},
 			},
@@ -434,7 +438,7 @@ require("noice").setup(
 						{ error = true },
 						{ warning = true },
 						{ event = "msg_show", kind = { "" } },
-						{ event = "lsp", kind = "message" },
+						{ event = "lsp",      kind = "message" },
 					},
 				},
 				filter_opts = { count = 1 },
@@ -523,7 +527,7 @@ require("noice").setup(
 		},
 		markdown = {
 			hover = {
-				["|(%S-)|"] = vim.cmd.help, -- vim help links
+				["|(%S-)|"] = vim.cmd.help,               -- vim help links
 				["%[.-%]%((%S-)%)"] = require("noice.util").open, -- markdown links
 			},
 			highlights = {
@@ -542,13 +546,13 @@ require("noice").setup(
 		presets = {
 			-- you can enable a preset by setting it to true, or a table that will override the preset config
 			-- you can also add custom presets that you can enable/disable with enabled=true
-			bottom_search = true, -- use a classic bottom cmdline for search
-			command_palette = true, -- position the cmdline and popupmenu together
+			bottom_search = true,    -- use a classic bottom cmdline for search
+			command_palette = true,  -- position the cmdline and popupmenu together
 			long_message_to_split = false, -- long messages will be sent to a split
-			inc_rename = false, -- enables an input dialog for inc-rename.nvim
-			lsp_doc_border = false, -- add a border to hover docs and signature help
+			inc_rename = false,      -- enables an input dialog for inc-rename.nvim
+			lsp_doc_border = false,  -- add a border to hover docs and signature help
 		},
-		throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
+		throttle = 1000 / 30,       -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
 		---@type NoiceConfigViews
 		views = {}, ---@see section on views
 		---@type NoiceRouteConfig[]
@@ -565,7 +569,7 @@ require("colortils").setup(
 		-- Register in which color codes will be copied
 		register = "\"",
 		-- Preview for colors, if it contains `%s` this will be replaced with a hex color code of the color
-		color_preview =  "█ %s",
+		color_preview = "█ %s",
 		-- The default in which colors should be saved
 		-- This can be hex, hsl or rgb
 		default_format = "hex",
@@ -656,7 +660,7 @@ require('nvim-highlight-colors').setup({
 	---Label must be properly escaped with '%' to adhere to `string.gmatch`
 	--- :help string.gmatch
 	custom_colors = {
-		{ label = '%-%-theme%-primary%-color', color = '#0f1219' },
+		{ label = '%-%-theme%-primary%-color',   color = '#0f1219' },
 		{ label = '%-%-theme%-secondary%-color', color = '#5a5d64' },
 	},
 
@@ -687,31 +691,31 @@ require("nvim-tree").setup({
 -- defaults
 require 'hex'.setup {
 
-  -- cli command used to dump hex data
-  dump_cmd = 'xxd -g 1 -u',
+	-- cli command used to dump hex data
+	dump_cmd = 'xxd -g 1 -u',
 
-  -- cli command used to assemble from hex data
-  assemble_cmd = 'xxd -r',
-  
-  -- function that runs on BufReadPre to determine if it's binary or not
-  is_file_binary_pre_read = function()
-    -- logic that determines if a buffer contains binary data or not
-    -- must return a bool
-  end,
+	-- cli command used to assemble from hex data
+	assemble_cmd = 'xxd -r',
 
-  -- function that runs on BufReadPost to determine if it's binary or not
-  is_file_binary_post_read = function()
-    -- logic that determines if a buffer contains binary data or not
-    -- must return a bool
-  end,
+	-- function that runs on BufReadPre to determine if it's binary or not
+	is_file_binary_pre_read = function()
+		-- logic that determines if a buffer contains binary data or not
+		-- must return a bool
+	end,
+
+	-- function that runs on BufReadPost to determine if it's binary or not
+	is_file_binary_post_read = function()
+		-- logic that determines if a buffer contains binary data or not
+		-- must return a bool
+	end,
 }
 
 require("godotdev").setup({
-  editor_host = "127.0.0.1", -- Godot editor host
-  editor_port = 6005,        -- Godot LSP port
-  debug_port = 6006,         -- Godot debugger port
-  csharp = false,             -- Enable C# Installation Support
-  autostart_editor_server = true,  -- Enable auto start Nvim server
+	editor_host = "127.0.0.1",    -- Godot editor host
+	editor_port = 6005,           -- Godot LSP port
+	debug_port = 6006,            -- Godot debugger port
+	csharp = false,               -- Enable C# Installation Support
+	autostart_editor_server = true, -- Enable auto start Nvim server
 })
 
 require("conform").setup({
@@ -728,4 +732,8 @@ require("conform").setup({
 		timeout_ms = 500,
 		lsp_format = "fallback"
 	}
+})
+
+require("luasnip.loaders.from_lua").load({
+	paths = "~/.config/nvim/lua/snippets"
 })

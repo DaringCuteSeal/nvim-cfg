@@ -6,7 +6,7 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>pg', builtin.git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
-	builtin.grep_string({ search = vim.fn.input("Find string: ")});
+	builtin.grep_string({ search = vim.fn.input("Find string: ") });
 end)
 
 -- templates
@@ -56,4 +56,15 @@ vim.keymap.set("n", "<leader>di", dap.step_into)
 vim.keymap.set("n", "<leader>do", dap.step_out)
 vim.keymap.set("n", "<leader>dr", dap.repl.open)
 
+vim.keymap.set({ "i", "s" }, "<Tab>", function()
+	local ls = require("luasnip")
+	if ls.expand_or_jumpable() then
+		ls.expand_or_jump()
+	else
+		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", true)
+	end
+end, { silent = true })
 
+vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+	require("luasnip").jump(-1)
+end, { silent = true })
