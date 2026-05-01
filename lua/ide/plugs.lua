@@ -16,7 +16,7 @@ require("lazy").setup(
 		"nvim-lua/plenary.nvim",
 		"shaunsingh/nord.nvim",
 		--"ActivityWatch/aw-watcher-vim",
-		"lukas-reineke/headlines.nvim",
+		--"lukas-reineke/headlines.nvim",
 		{
 			"iamcco/markdown-preview.nvim",
 			cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -38,6 +38,15 @@ require("lazy").setup(
 		"numToStr/Comment.nvim",
 		--"epwalsh/obsidian.nvim",
 		"preservim/vim-markdown",
+		{
+			'MeanderingProgrammer/render-markdown.nvim',
+			dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
+			-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+			-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+			---@module 'render-markdown'
+			---@type render.md.UserConfig
+			opts = {},
+		},
 		{ 'wakatime/vim-wakatime',           lazy = false },
 		"lukas-reineke/indent-blankline.nvim",
 		{ "nvim-lualine/lualine.nvim", dependencies = { 'nvim-tree/nvim-web-devicons' } },
@@ -250,7 +259,6 @@ require('onedark').setup {
 }
 
 
-require("headlines").setup()
 
 
 
